@@ -9,7 +9,7 @@ app.use(morgan('combined'));
 
 /* Creating Articles objects to load necessary articles */
 var articles = {
-    'articleOne' : {
+    'article-one' : {
         title: 'Article One | Ram Babu',
         heading: 'Article One',
         date: 'August 18th 2017',
@@ -19,7 +19,7 @@ var articles = {
             </p>
     `
     },
-    'articleTwo' : {
+    'article-two' : {
         title: 'Article Two | Ram Babu',
         heading: 'Article Two',
         date: 'August 18th 2017',
@@ -29,7 +29,7 @@ var articles = {
             </p>
         `
     },
-    'articleThree' : {
+    'article-three' : {
         title: 'Article Three | Ram Babu',
         heading: 'Article Three',
         date: 'August 18th 2017',
@@ -94,17 +94,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+
+app.get('/:articleName', function (req, res) {
+    //articleName == article-one
+    //articles[articleName] == content object for article-one
+  res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
-  res.send(createTemplate(articleTwo));
-});
-
-app.get('/article-three', function (req, res) {
-  res.send(createTemplate(articleThree));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
