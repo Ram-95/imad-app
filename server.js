@@ -6,23 +6,42 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
-    title: 'Article One | Ram Babu',
-    heading: 'Article One',
-    date: 'August 18th 2017',
-    content: `
-        <p>
-            This is the space for Article ONE.
-        </p>
+
+/* Creating Articles objects to load necessary articles */
+var articles = {
+    articleOne : {
+        title: 'Article One | Ram Babu',
+        heading: 'Article One',
+        date: 'August 18th 2017',
+        content: `
+            <p>
+                This is the space for Article ONE.
+            </p>
     `
+    },
+    articleTwo : {
+        title: 'Article Two | Ram Babu',
+        heading: 'Article Two',
+        date: 'August 18th 2017',
+        content: `
+            <p>
+                This is the space for Article TWO.
+            </p>
+        `
+    },
+    articleThree : {
+        title: 'Article Three | Ram Babu',
+        heading: 'Article Three',
+        date: 'August 18th 2017',
+        content: `
+            <p>
+                This is the space for Article THREE.
+            </p>
+        `
+    }
 };
 
-/*var articles = {
-    articleOne = {},
-    articleTwo = {},
-    articleThree = {}
-};*/
-
+/* Function to create the basic html template.. since the html is same for all the three articles! */
 function createTemplate(data) {
     var title = data.title;
     var date = data.date;
@@ -70,19 +89,7 @@ function createTemplate(data) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Calling necessary functions */
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -92,11 +99,11 @@ app.get('/article-one', function (req, res) {
 });
 
 app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+  res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+  res.send(createTemplate(articleThree));
 });
 
 app.get('/ui/style.css', function (req, res) {
