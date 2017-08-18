@@ -17,11 +17,11 @@ var articleOne = {
     `
 };
 
-var articles = {
+/*var articles = {
     articleOne = {},
     articleTwo = {},
     articleThree = {}
-};
+};*/
 
 function createTemplate(data) {
     var title = data.title;
