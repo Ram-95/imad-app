@@ -12,7 +12,7 @@ var articles = {
     'article-one' : {
         title: 'Article One | Ram Babu',
         heading: 'Article One',
-        date: 'August 18th 2017',
+        date: Date(),
         content: `
             <p>
                 This is the space for Article ONE.
@@ -22,7 +22,7 @@ var articles = {
     'article-two' : {
         title: 'Article Two | Ram Babu',
         heading: 'Article Two',
-        date: 'August 18th 2017',
+        date: Date(),
         content: `
             <p>
                 This is the space for Article TWO.
@@ -32,7 +32,7 @@ var articles = {
     'article-three' : {
         title: 'Article Three | Ram Babu',
         heading: 'Article Three',
-        date: 'August 18th 2017',
+        date: Date(),
         content: `
             <p>
                 This is the space for Article THREE.
