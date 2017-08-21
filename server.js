@@ -82,7 +82,7 @@ function createTemplate(data) {
                     </h3>
                     
                     <div class= "date">
-                        ${date}.toDateString()
+                        ${date}.toDateString();
                     </div>
                     
                     <div>
