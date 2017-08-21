@@ -55,7 +55,7 @@ var articles = {
 /* Function to create the basic html template.. since the html is same for all the three articles! */
 function createTemplate(data) {
     var title = data.title;
-    var date = data.date;
+    var date = data.date.toDateString();
     var heading = data.heading;
     var content = data.content;
     var htmlTemplate= `
@@ -82,7 +82,7 @@ function createTemplate(data) {
                     </h3>
                     
                     <div class= "date">
-                        ${date}.toDateString();
+                        ${date}
                     </div>
                     
                     <div>
