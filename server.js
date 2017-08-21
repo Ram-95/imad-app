@@ -144,7 +144,7 @@ app.get('/articles/:articleName', function (req, res) {
     // To avoid this, we must use $1 instead of quotes and put the req.params.articleName in an array.
     // This will put a '\' in front of quotes so that SQL statements are considered as strings but not SQL statements
     
-    pool.query("SELECT * FROM articles WHERE title = $1", [req.params.articleName], function(err, result) {
+    pool.query("SELECT * FROM article1 WHERE title = $1", [req.params.articleName], function(err, result) {
        if(err) {
            res.status(500).send(err.toString());
        } else {
