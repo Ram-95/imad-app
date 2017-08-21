@@ -18,6 +18,7 @@ var config = {
 
 
 /* Creating Articles objects to load necessary articles */
+// This piece of code is not necessary as we are loading the articles from the DB below. This section can be removed.
 var articles = {
     'article-one' : {
         title: 'Article One | Ram Babu',
@@ -174,6 +175,8 @@ app.get('/ui/madi.png', function (req, res) {
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+
+
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
