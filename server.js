@@ -134,6 +134,7 @@ app.get('/submit-name', function(req, res) {
 });
 
 
+// Fetching Data from DB and rendering in the page
 app.get('/articles/:articleName', function (req, res) {
     //articleName == article-one
     //articles[articleName] == content object for article-one
