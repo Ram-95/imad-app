@@ -140,7 +140,7 @@ app.get('/articles/:articleName', function (req, res) {
     //articles[articleName] == content object for article-one
     
     // SELECT * FROM article1 WHERE title = 'article-one'; 
-    // user can inject their own sql like this /articles/';DELETE FROM 'article1' WHERE 'a' = 'a'
+    // user can inject their own sql like this /articles/';DELETE FROM article1 WHERE 'a' = 'a
     pool.query("SELECT * FROM articles WHERE title = '"+ req.params.articleName + "'", function(err, result) {
        if(err) {
            res.status(500).send(err.toString());
