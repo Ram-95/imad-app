@@ -141,7 +141,8 @@ app.get('/articles/:articleName', function (req, res) {
     
     // SELECT * FROM article1 WHERE title = 'article-one'; 
     // user can inject their own sql like this /articles/';DELETE FROM article1 WHERE 'a' = 'a
-    pool.query("SELECT * FROM articles WHERE title = '"+ req.params.articleName + "'", function(err, result) {
+    // To avoid this, we must use $1 instead of quotes and put the req.params.articleName in an array.
+    pool.query("SELECT * FROM articles WHERE title = $1"+ [req.params.articleName], function(err, result) {
        if(err) {
            res.status(500).send(err.toString());
        } else {
