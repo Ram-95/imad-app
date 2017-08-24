@@ -47,4 +47,17 @@ strong {
     font-size: 18px;
     border-radius: 10px;
     border-color: orangered;
+    padding: 5px;
+}
+
+
+
+#submit-btn {
+    background-color: dodgerblue;
+    color: white;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: orangered;
+    padding: 5px;
 }
