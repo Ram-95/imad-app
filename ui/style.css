@@ -71,3 +71,8 @@ strong {
     
 }
 
+#counter:hover
+{
+    background-color:#ff00ff;
+}
+
