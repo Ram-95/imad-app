@@ -19,6 +19,8 @@ body {
 .img-medium {
     height: 250px;
     border: 2px solid brown;
+    padding: 10px;
+    background-color: black;
 }
 
 strong {
