@@ -38,3 +38,9 @@ strong {
 .date {
     color: green;
 }
+
+
+#counter {
+    background-color: green;
+    color: white;
+}
