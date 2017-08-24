@@ -43,4 +43,8 @@ strong {
 #counter {
     background-color: green;
     color: white;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: orangered;
 }
