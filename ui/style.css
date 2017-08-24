@@ -79,3 +79,8 @@ strong {
 #submit-btn:hover {
     background-color: red;
 }
+
+
+.img-medium:hover {
+    background-color: red;
+}
