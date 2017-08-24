@@ -73,6 +73,9 @@ strong {
 
 #counter:hover
 {
-    background-color:black;
+    background-color:blue;
 }
 
+#submit-btn:hover {
+    background-color: red;
+}
