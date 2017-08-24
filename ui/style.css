@@ -62,5 +62,10 @@ strong {
     padding: 5px;
 }
 
-
+#name {
+    background-color: antiquewhite;
+    padding: 6px;
+    border-color: chocolate;
+    
+}
 
