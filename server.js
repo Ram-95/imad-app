@@ -24,7 +24,7 @@ function hash(input, salt) {
   var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
   // pbkdf2Sync is a hash functin that concatenates input with salt and then hashes the value 10k times
   // password -> password+salt -> <hash> -> <hash>.. 10k times
-  return["pbkdf2Sync", "1000","this-is-some-random-string",hashed.toString('hex')].join("~");
+  return["pbkdf2Sync", "1000", salt, hashed.toString('hex')].join("~");
 }
 
 app.get('/hash/:input',function(req, res) {
@@ -47,6 +47,33 @@ app.post('/create-user', function(req, res) {
        }
    });
     
+});
+
+
+app.post('/login', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    
+    pool.query('SELECT * FROM "user" WHERE username = $1', [username], function(err, result) {
+       if(err) {
+           res.status(500).send(err.toString());
+       }  else {
+           if(result.rows.length === 0) {
+               res.status(403).send('Username/Password is Invalid');
+           } else {
+               // Match the password
+               var dbString = result.rows[0].password;
+               var salt = dbString.split('~')[2];
+               var hashedPassword = hash(password, salt);
+               if(hashedPassword === dbString) {
+                   res.send('Credentials Correct!');
+               } else {
+                   res.status(403).send('Username/Password is Invalid');
+               }
+           }
+       }
+    });
 });
 
 
