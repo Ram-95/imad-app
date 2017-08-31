@@ -1,6 +1,7 @@
 //console.log('Loaded!');
 //alert('Hi! Welcome to IMAD.');
-var button = document.getElementById('counter');
+
+/*var button = document.getElementById('counter');
 button.onclick = function() {
 // Create a request object
     var request = new XMLHttpRequest();
@@ -21,11 +22,10 @@ button.onclick = function() {
     //Make the request
     request.open('GET', 'http://ramkottapally.imad.hasura-app.io/counter', true);
     request.send(null);
-};
+};*/
 
 
 //Submit names and the appear in the list
-
 
 var submit = document.getElementById('submit-btn');
 submit.onclick = function() {
@@ -39,6 +39,15 @@ submit.onclick = function() {
       if(request.readyState === XMLHttpRequest.DONE) {
           //Take some action
           if(request.status === 200) {
+              
+              alert('User Successfully Logged In');
+          } else if(request.status === 403) {
+              alert('Forbidden');
+          } else if(request.status === 500) {
+              
+              alert('Some problem with the Server');
+          }
+              /* This part is to insert the contents into the list
               var names = request.responseText;
               names = JSON.parse(names);
               var list = '';
@@ -49,16 +58,20 @@ submit.onclick = function() {
             }
             
             var ul = document.getElementById('namelist');
-            ul.innerHTML = list;
+            ul.innerHTML = list;*/
           }
       }  
     };
     
     //Make the request
-    var nameInput = document.getElementById('name');
-    var name = nameInput.value;
-    request.open('GET', 'http://ramkottapally.imad.hasura-app.io/submit-name?name='+name, true);
-    request.send(null);
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    console.log(username);
+    console.log(password);
+    
+    request.open('POST', 'http://ramkottapally.imad.hasura-app.io/login', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
     
     
  
