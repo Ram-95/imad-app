@@ -40,14 +40,7 @@ submit.onclick = function() {
           //Take some action
               if(request.status === 200) {
                   
-                  alert('User Successfully Logged In');
-              } else if(request.status === 403) {
-                  alert('Forbidden');
-              } else if(request.status === 500) {
-                  
-                  alert('Some problem with the Server');
-              }
-              /* This part is to insert the contents into the list
+                  /* This part is to insert the contents into the list
               var names = request.responseText;
               names = JSON.parse(names);
               var list = '';
@@ -59,6 +52,15 @@ submit.onclick = function() {
             
             var ul = document.getElementById('namelist');
             ul.innerHTML = list;*/
+                  
+                  alert('User Successfully Logged In');
+              } else if(request.status === 403) {
+                  alert('Forbidden');
+              } else if(request.status === 500) {
+                  
+                  alert('Some problem with the Server');
+              }
+              
           }
       }  
     };
@@ -73,9 +75,3 @@ submit.onclick = function() {
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify({username: username, password: password}));
     
-    
- 
-  
-  
-    
-};
