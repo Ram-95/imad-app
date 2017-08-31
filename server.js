@@ -37,7 +37,7 @@ app.get('/create-user', function(req, res) {
        if(err) {
            res.status(500).send(err.toString());
        } else {
-           res.send(JSON.stringify(result.rows));
+           res.send('User Successfully Created: '+ username);
        }
    });
     
