@@ -30,6 +30,20 @@ app.get('/hash/:input',function(req, res) {
 });
 
 
+app.get('/create-user', function(req, res) {
+   var salt = crypto.getRandomBytes(128).toString('hex');
+   var dbString = hash(password, salt);
+   pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function(err, result) {
+       if(err) {
+           res.status(500).send(err.toString());
+       } else {
+           res.send(JSON.stringify(result.rows));
+       }
+   });
+    
+});
+
+
 
 /* Creating Articles objects to load necessary articles */
 // This piece of code is not necessary as we are loading the articles from the DB below. This section can be removed.
