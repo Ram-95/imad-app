@@ -38,15 +38,15 @@ submit.onclick = function() {
     {
       if(request.readyState === XMLHttpRequest.DONE) {
           //Take some action
-          if(request.status === 200) {
-              
-              alert('User Successfully Logged In');
-          } else if(request.status === 403) {
-              alert('Forbidden');
-          } else if(request.status === 500) {
-              
-              alert('Some problem with the Server');
-          }
+              if(request.status === 200) {
+                  
+                  alert('User Successfully Logged In');
+              } else if(request.status === 403) {
+                  alert('Forbidden');
+              } else if(request.status === 500) {
+                  
+                  alert('Some problem with the Server');
+              }
               /* This part is to insert the contents into the list
               var names = request.responseText;
               names = JSON.parse(names);
