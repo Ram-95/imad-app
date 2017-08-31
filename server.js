@@ -19,7 +19,9 @@ var config = {
 function hash(input, salt) {
   // Make a Hash function
   var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
-  return(hashed).toString('hex');
+  // pbkdf2Sync is a hash functin that concatenates input with salt and then hashes the value 10k times
+  // password -> password+salt -> <hash> -> <hash>.. 10k times
+  return["pbkdf2Sync", "1000","this-is-some-random-string",hashed.toString('hex')].join("~");
 }
 
 app.get('/hash/:input',function(req, res) {
